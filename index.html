@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3D Tower Defense</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="game">
+  <header id="hud">
+    <div class="stat">❤️ Жизни: <span id="lives">20</span></div>
+    <div class="stat">💰 Золото: <span id="gold">150</span></div>
+    <div class="stat">🌊 Волна: <span id="wave">0</span></div>
+    <div class="stat">⭐ Очки: <span id="score">0</span></div>
+    <div class="stat best">🏆 Рекорд: <span id="best">0</span></div>
+  </header>
+
+  <div id="main">
+    <div id="canvasWrap">
+      <div id="scene"></div>
+      <div id="toast" class="hidden"></div>
+      <div id="hint3d">
+        ЛКМ — поставить / выбрать · ПКМ-тяга — вращать · Колесо — зум · Q/E/Z/X — обзор
+      </div>
+    </div>
+
+    <aside id="side">
+      <h3>Башни</h3>
+      <div id="shop"></div>
+
+      <h3>Обзор камеры</h3>
+      <div id="views" class="view-grid">
+        <button class="view-btn" data-view="iso" title="Изометрия (стандартный вид)">🏔️</button>
+        <button class="view-btn" data-view="top" title="Вид сверху">🎯</button>
+        <button class="view-btn" data-view="side" title="Вид сбоку">📐</button>
+        <button class="view-btn" data-view="front" title="Вид спереди">🧭</button>
+      </div>
+      <div class="view-hint">Q / E — поворот · Z / X — наклон · + / − — зум</div>
+
+      <h3>Инфо</h3>
+      <div id="info"></div>
+
+      <div class="controls">
+        <button id="startWave" class="btn primary">Начать волну</button>
+        <button id="speedBtn" class="btn">Скорость: x1</button>
+        <button id="pauseBtn" class="btn">Пауза</button>
+        <button id="muteBtn" class="btn">🔊 Звук: вкл</button>
+        <button id="resetBtn" class="btn danger">Сброс</button>
+      </div>
+
+      <div class="hint">
+        1/2/3 — выбор башни<br>
+        ЛКМ — поставить / выбрать<br>
+        ПКМ-тяга — вращать камеру<br>
+        Колесо — зум, Esc — отмена<br>
+        Q/E/Z/X — обзор, +/− — зум<br>
+        Пробел — волна, P — пауза
+      </div>
+    </aside>
+  </div>
+</div>
+
+<div id="overlay" class="hidden">
+  <div class="panel">
+    <h2>Игра окончена</h2>
+    <p>Ваш счёт: <b id="finalScore">0</b></p>
+    <p>Рекорд: <b id="finalBest">0</b></p>
+    <p id="newRecord" class="record hidden">🏆 Новый рекорд!</p>
+    <button id="restartBtn" class="btn primary">Играть снова</button>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="game.js"></script>
+</body>
+</html>
